@@ -8,7 +8,7 @@ export default function NotFound() {
       <div className="mx-auto max-w-7xl px-10">
         <div className="text-center">
           <p className="mt-2 text-3xl font-medium leading-8 tracking-tight sm:text-5xl">
-            <strong>404</strong> – Page not found
+            <strong>404</strong> – Page not found 😔
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-xl text-neutral-500 dark:text-neutral-300">
             Oops! The page you're looking for doesn't exist
