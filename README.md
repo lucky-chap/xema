@@ -1,46 +1,90 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+![Screenshot](./src/assets/banner.png)
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Xema 📝🚀
+A new space for everything ✅❤️🔥
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+## About
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Xema is a place for everything. It's something I built so I can save bookmarks, lists, tasks, and anything really, for easy access. The minimal design I borrowed from a few people makes it look super cool. Please consider dropping a like, and follow me on github also 👍
 
-### `npm run build`
+#### Why  I built this:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- I wanted something fancy for my portfolio, again 🤩
+- I wanted to know try out supabase
+- I just love TailwindCSS
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+If you got any questions, just hit me up:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Twitter [@hunchodotdev](https://twitter.com/hunchodotdev)
+- Discord username [FatKidOnFiree#1355](FatKidOnFiree#1355) Add me as a friend ❤️
+- Email [hunchodotdev@gmail.com](mailto:hunchodotdev@gmail.com)
+- Email again [wartywarthog7@gmail.com](wartywarthog7@gmail.com)
+- Telegram [FatKidOnFiree](https://t.me/FatKidOnFiree)
+- Reddit username [yrn_quavo](yrn_quavo)
 
-### `npm run eject`
+Nova was created with [React](https://reactjs.org) and [Supabase](https://supabase.io).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Reviews
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Nothing here yet 😔😭
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Installation and development
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This app runs by default on port `3000`. 
+
+
+```bash
+git clone git@github.com:lucky-chap/xema
+cd xema
+npm i
+```
+
+#### After doing the above:
+
+- Log in to your supabase [dashboard](https://app.supabase.io)
+- Create a new project
+- Now after it has been created, create a new table called `entries`
+- Add new columns in the table:
+    - `id` : string - non-nullable
+    - `category` : string - non-nullable
+    - `inserted_at` : string - non-nullable
+    - `user_id` : string - non-nullable
+    - `content` : string - nullable
+    - `is_complete` : bool - nullable
+- Now go to the authentication section of the supabase dashboard
+- In development mode:
+    - Set `Site URL` to the `http://localhost:3000`
+- In production mode:
+    - Set `Site URL` to the deployed URL of the project ([Vercel](https://vercel.com) is recommended)
+    - Add the deployed URL of the project to the  `Addition Redirects` section, by separating with commas
+- Finally, make sure you create a `.env.local` similar to [.env.example](.env.example)
+
+#### After doing the above:
+Run the following command
+
+```bash
+npm start
+```
+
+Voila! Open your browser to [localhost:3000](http://localhost:3000) to see the app running live 👍
+
+## Contributing
+
+⚠️ As of now, I have not provided a guide on contribution yet, but I'm working on that
+
+
+## Author
+
+- [Quavo](https://www.github.com/lucky-chap)
+
+## License
+
+This project is open source and available under the [MIT License](./LICENSE.txt).
