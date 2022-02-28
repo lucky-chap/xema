@@ -21,7 +21,7 @@ export default function SignIn() {
       const { error } = await supabase.auth.signIn(
         { email: email },
         {
-          redirectTo: 'http://localhost:3000/home',
+          redirectTo: 'https://xema.vercel.app/home',
         }
       );
       setHelperText({
