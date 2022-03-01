@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 
@@ -42,11 +42,7 @@ const Home = () => {
   const categories = ['note', 'task', 'bookmark'];
   const category = searchParams.get('category');
 
-  useEffect(() => {
-    fetchUserEntries().catch(console.error);
-  }, [setUserEntries]);
-
-  const fetchUserEntries = async () => {
+  const fetchUserEntries = useCallback(async () => {
     let { data: entries, error } = await supabase
       .from('entries')
       .select('*')
@@ -54,7 +50,11 @@ const Home = () => {
       .eq('user_id', String(session?.user?.id))
     if (error) console.log('error', error);
     else setUserEntries(entries);
-  };
+  }, [session?.user?.id]);
+
+    useEffect(() => {
+			fetchUserEntries().catch(console.error)
+		}, [fetchUserEntries, setUserEntries])
 
   const entries = useMemo(() => {
     const filterByCategory = (category: string) => {
