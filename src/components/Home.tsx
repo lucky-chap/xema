@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 
+
 import * as PATHS from '../constants/paths';
 
 import { ICategoryLinkProps } from '../lib/interfaces';
@@ -12,6 +13,7 @@ import AddBookmark from './AddBookmark';
 import EntryList from './EntryList';
 
 function CategoryLink({ category, children, ...props }: ICategoryLinkProps) {
+  
   const [searchParams] = useSearchParams();
   const isActive = searchParams.get('category') === category;
 
@@ -34,6 +36,8 @@ const Home = () => {
   const location = useLocation();
   const [searchParams] = useSearchParams();
 
+   const [session] = useState(supabase.auth.session())
+
   const [userEntries, setUserEntries] = useState<any>([]);
   const categories = ['note', 'task', 'bookmark'];
   const category = searchParams.get('category');
@@ -46,7 +50,8 @@ const Home = () => {
     let { data: entries, error } = await supabase
       .from('entries')
       .select('*')
-      .order('inserted_at', { ascending: false });
+      .order('inserted_at', { ascending: false })
+      .eq('user_id', String(session?.user?.id))
     if (error) console.log('error', error);
     else setUserEntries(entries);
   };
